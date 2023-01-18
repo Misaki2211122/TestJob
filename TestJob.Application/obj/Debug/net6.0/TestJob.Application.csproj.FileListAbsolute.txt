@@ -1,0 +1,12 @@
+D:\Source\TestJob\TestJob.Application\bin\Debug\net6.0\TestJob.Application.deps.json
+D:\Source\TestJob\TestJob.Application\bin\Debug\net6.0\TestJob.Application.dll
+D:\Source\TestJob\TestJob.Application\bin\Debug\net6.0\TestJob.Application.pdb
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.csproj.AssemblyReference.cache
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.AssemblyInfoInputs.cache
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.AssemblyInfo.cs
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.csproj.CoreCompileInputs.cache
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.dll
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\refint\TestJob.Application.dll
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\TestJob.Application.pdb
+D:\Source\TestJob\TestJob.Application\obj\Debug\net6.0\ref\TestJob.Application.dll

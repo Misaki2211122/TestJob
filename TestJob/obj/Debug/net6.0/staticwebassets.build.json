@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3ogA2EkOrBW5mHLQ5Ef3XDkyuMuPxbayprnP1O1V1mU=",
+  "Source": "TestJob",
+  "BasePath": "_content/TestJob",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

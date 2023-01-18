@@ -1,0 +1,216 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Source\\TestJob\\TestJob\\TestJob.csproj": {}
+  },
+  "projects": {
+    "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj",
+        "projectName": "TestJob.Application",
+        "projectPath": "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj",
+        "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\TestJob\\TestJob.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Daniil\\.dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\TestJob.Infrastructure.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\TestJob.Infrastructure.Api.csproj",
+        "projectName": "TestJob.Infrastructure.Api",
+        "projectPath": "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\TestJob.Infrastructure.Api.csproj",
+        "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj": {
+                "projectPath": "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Daniil\\.dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\TestJob\\TestJob\\TestJob.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\TestJob\\TestJob\\TestJob.csproj",
+        "projectName": "TestJob",
+        "projectPath": "D:\\Source\\TestJob\\TestJob\\TestJob.csproj",
+        "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\TestJob\\TestJob\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj": {
+                "projectPath": "D:\\Source\\TestJob\\TestJob.Application\\TestJob.Application.csproj"
+              },
+              "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\TestJob.Infrastructure.Api.csproj": {
+                "projectPath": "D:\\Source\\TestJob\\TestJob.Infrastructure.Api\\TestJob.Infrastructure.Api.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Daniil\\.dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

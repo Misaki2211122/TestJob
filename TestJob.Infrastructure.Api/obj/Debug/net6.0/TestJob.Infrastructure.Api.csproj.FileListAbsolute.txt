@@ -1,0 +1,15 @@
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.csproj.AssemblyReference.cache
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.AssemblyInfoInputs.cache
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.AssemblyInfo.cs
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.csproj.CoreCompileInputs.cache
+D:\Source\TestJob\TestJob.Infrastructure.Api\bin\Debug\net6.0\TestJob.Infrastructure.Api.deps.json
+D:\Source\TestJob\TestJob.Infrastructure.Api\bin\Debug\net6.0\TestJob.Infrastructure.Api.dll
+D:\Source\TestJob\TestJob.Infrastructure.Api\bin\Debug\net6.0\TestJob.Infrastructure.Api.pdb
+D:\Source\TestJob\TestJob.Infrastructure.Api\bin\Debug\net6.0\TestJob.Application.dll
+D:\Source\TestJob\TestJob.Infrastructure.Api\bin\Debug\net6.0\TestJob.Application.pdb
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.csproj.CopyComplete
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.dll
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\refint\TestJob.Infrastructure.Api.dll
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\TestJob.Infrastructure.Api.pdb
+D:\Source\TestJob\TestJob.Infrastructure.Api\obj\Debug\net6.0\ref\TestJob.Infrastructure.Api.dll
