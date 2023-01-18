@@ -23,8 +23,12 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
 
     public async Task<AnalyzePageResponse> Handle(AnalyzePageRequest request, CancellationToken cancellationToken)
     {
+        if (!TryToBase64(request.Url_b64))
+            return new AnalyzePageResponse() {Is_error = 1,  Error_code = "406", Error_message = "Can't convert to base64 url"};
         var url = Base64Decryption(request.Url_b64); // Расшифрованный URL
-
+        
+        if (!TryToBase64(request.Page_b64))
+            return new AnalyzePageResponse() {Is_error = 1,  Error_code = "406", Error_message = "Can't convert to base64 page"};
         var page = Base64Decryption(request.Page_b64); // Расшифрованная страница
 
         var context = BrowsingContext.New(_configuration);
@@ -81,5 +85,18 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         }
 
         return decrypted;
+    }
+    
+    public static bool TryToBase64(string value)
+    {
+        try
+        {
+            var result = Convert.FromBase64String(value);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }
