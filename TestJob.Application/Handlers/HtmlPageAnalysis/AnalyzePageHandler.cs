@@ -37,7 +37,7 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         var selector = document.QuerySelectorAll(request.Selector); //все элементы по CSS-селектору
         List<string> attribute = selector.Select(x => x.GetAttribute(request.Attribute)).ToList();
 
-        List<string> emails = new List<string>();
+        List<string> emails = new List<string>(); // лист майлов
         foreach (Match myMatch in _regex.Matches(page))
         {
             if (myMatch.Success) 
@@ -47,7 +47,7 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         var encryptedTextBytes = System.Convert.FromBase64String(request.Encrypted_text_bytes_b64);
         var keyBytes = System.Convert.FromBase64String(request.Key_bytes_b64);
 
-        var res = DecryptRijndael(encryptedTextBytes, keyBytes);
+        //var res = DecryptRijndael(encryptedTextBytes, keyBytes); // расшифровка сообщения
         
         return new AnalyzePageResponse() {Is_error = 0, Url = url, Elements_count = selector.Length, Elements_attr_list = attribute, Emails_count = emails.Count, Emails_list = emails, Decrypted_plain_text = "decryptedText", Error_code = "200", Error_message = "Success"};
     }
