@@ -23,6 +23,12 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
 
     public async Task<AnalyzePageResponse> Handle(AnalyzePageRequest request, CancellationToken cancellationToken)
     {
+        if (request.Selector == "")
+            return new AnalyzePageResponse() {Is_error = 1,  Error_code = "406", Error_message = "Empty Selector"};
+        
+        if (request.Attribute == "")
+            return new AnalyzePageResponse() {Is_error = 1,  Error_code = "406", Error_message = "Empty Attribute"};
+        
         if (!TryToBase64(request.Url_b64))
             return new AnalyzePageResponse() {Is_error = 1,  Error_code = "406", Error_message = "Can't convert to base64 url"};
         var url = Base64Decryption(request.Url_b64); // Расшифрованный URL
@@ -47,9 +53,9 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         var encryptedTextBytes = System.Convert.FromBase64String(request.Encrypted_text_bytes_b64);
         var keyBytes = System.Convert.FromBase64String(request.Key_bytes_b64);
 
-        //var res = DecryptRijndael(encryptedTextBytes, keyBytes); // расшифровка сообщения
+        var decryptedText = DecryptStringFromBytes_Aes(encryptedTextBytes, keyBytes); // расшифровка сообщения
         
-        return new AnalyzePageResponse() {Is_error = 0, Url = url, Elements_count = selector.Length, Elements_attr_list = attribute, Emails_count = emails.Count, Emails_list = emails, Decrypted_plain_text = "decryptedText", Error_code = "200", Error_message = "Success"};
+        return new AnalyzePageResponse() {Is_error = 0, Url = url, Elements_count = selector.Length, Elements_attr_list = attribute, Emails_count = emails.Count, Emails_list = emails, Decrypted_plain_text = decryptedText, Error_code = "200", Error_message = "Success"};
     }
 
     public string Base64Decryption(string base64String)
@@ -58,36 +64,8 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         var res = System.Text.Encoding.UTF8.GetString(base64Decryption);
         return res;
     }
-
-    public static string DecryptRijndael(byte[] buffer, byte[] key)
-    {
-        var rijndael = new RijndaelManaged
-        {
-            BlockSize = 128,
-            IV = new []{Byte.MinValue, Byte.MaxValue, Byte.MinValue, Byte.MinValue, Byte.MinValue, Byte.MinValue, Byte.MinValue, Byte.MinValue, Byte.MinValue, Byte.MinValue,Byte.MinValue,Byte.MinValue},
-            KeySize = 192,
-            Key = key,
-            Mode = CipherMode.ECB
-        };
-
-        var transform = rijndael.CreateDecryptor();
-        string decrypted;
-        using (var ms = new MemoryStream())
-        {
-            using (var cs = new CryptoStream(ms, transform, CryptoStreamMode.Write))
-            {
-                cs.Write(buffer, 0, buffer.Length);
-                cs.FlushFinalBlock();
-                decrypted = Encoding.UTF8.GetString(ms.ToArray());
-                cs.Close();
-            }
-            ms.Close();
-        }
-
-        return decrypted;
-    }
     
-    public static bool TryToBase64(string value)
+    public bool TryToBase64(string value)
     {
         try
         {
@@ -98,5 +76,48 @@ public class AnalyzePageHandler : IRequestHandler<AnalyzePageRequest, AnalyzePag
         {
             return false;
         }
+    }
+    
+    static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key)
+    {
+        // Check arguments.
+        if (cipherText == null || cipherText.Length <= 0)
+            throw new ArgumentNullException("cipherText");
+        if (Key == null || Key.Length <= 0)
+            throw new ArgumentNullException("Key");
+       
+
+        // Declare the string used to hold
+        // the decrypted text.
+        string plaintext = null;
+
+        // Create an Aes object
+        // with the specified key and IV.
+        using (Aes aesAlg = Aes.Create() )
+        {
+            aesAlg.Key = Key;
+            aesAlg.Mode = CipherMode.ECB;
+            aesAlg.Padding = PaddingMode.None;
+                
+            // Create a decryptor to perform the stream transform.
+            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+                
+            // Create the streams used for decryption.
+            using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+            {
+                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                {
+                    using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                    {
+
+                        // Read the decrypted bytes from the decrypting stream
+                        // and place them in a string.
+                        plaintext = srDecrypt.ReadToEnd();
+                    }
+                }
+            }
+        }
+
+        return plaintext;
     }
 }
